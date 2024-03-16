@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Radar Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div id="radarChart" style="width: 800px; height: 600px;"></div>
+    <script>
+        var chart = echarts.init(document.getElementById('radarChart'));
+
+        var option = {
+            tooltip: {},
+            radar: [
+                {
+                    indicator: [
+                        { name: '平均游览人数', max: 10000 },
+                        { name: '平均评分', max: 4.9 },
+                        { name: '平均现价', max: 1000 },
+                        { name: '平均参考价格', max: 1000 }
+                    ],
+                    center: ['50%', '50%'],
+                    radius: 80,
+                    name: {
+                        textStyle: {
+                            color: '#333'
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: 'RG',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [3000, 4.7, 300, 200],
+                            name: 'RG'
+                        }
+                    ]
+                },
+                {
+                    name: 'HG',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [9000, 4.4, 100, 80],
+                            name: 'HG'
+                        }
+                    ]
+                },
+                {
+                    name: 'MG',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [6000, 4.3, 400, 300],
+                            name: 'MG'
+                        }
+                    ]
+                },
+                {
+                    name: 'PG',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [2500, 4.7, 1050, 850],
+                            name: 'PG'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        chart.setOption(option);
+    </script>
+</body>
+</html>
